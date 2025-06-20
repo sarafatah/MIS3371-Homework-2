@@ -1,20 +1,83 @@
 body {
-  margin: 0;
-  font-family: 'Verdana', sans-serif;
-  background-color: #e0f7fa;
-  color: #333;
+   margin: 0;
+   font-family: 'Verdana', sans-serif; /* Changed font */
+   background-color: #e0f7fa; /* Light blue background for body */
+   color: #333;
 }
-.error {
-  color: red;
-  font-size: 12px;
+
+
+/* Header Section */
+#header{
+   background-color: #fff9c4; /* Light yellow */
+   font-family: 'Georgia', serif;
+   color: #333;
+   font-size: 1em;
 }
-#header {
-  background-color: #fff9c4;
-  font-family: 'Georgia', serif;
+
+
+#date {
+   font-style: italic;
+   color: #555;
+   font-family: 'Courier New', monospace; /* Changed font */
 }
+
+
+#body th {
+   font-size: 1.5em;
+   color: #000;
+   text-align: left;
+   font-family: 'Tahoma', sans-serif; /* Changed font */
+}
+
+
+#body input[type="text"],
+#body input[type="password"],
+#body input[type="email"],
+#body textarea,
+#body select {
+   font-family: 'Lucida Console', monospace; /* Changed font */
+}
+
+
+#body button {
+   background-color: #4caf50;
+   color: white;
+   font-family: 'Impact', sans-serif; /* Changed font */
+}
+
+
+/* Footer Section */
 #footer {
-  background-color: #c8e6c9;
-  color: #000;
-  font-family: 'Courier New', monospace;
-  text-align: center;
+   background-color: #c8e6c9; /* Light green */
+   color: #000;
+   font-family: 'Courier New', monospace; /* Changed font */
+}
+
+
+#footer address {
+   font-family: 'Times New Roman', serif; /* Changed font */
+}
+
+
+#footer button {
+   background-color: #a5d6a7;
+   color: black;
+   font-family: 'Comic Sans MS', cursive; /* Changed font */
+}
+
+
+/* Hyperlink despite my website not having any*/
+a {
+   color: red;
+   text-decoration: none;
+   font-family: 'Trebuchet MS', sans-serif; /* Changed font */
+}
+
+
+
+
+/* ID Selector Example */
+#userid, #password, #repassword {
+   background-color: #e3f2fd;
+   font-family: 'Palatino Linotype', serif; /* Changed font */
 }
