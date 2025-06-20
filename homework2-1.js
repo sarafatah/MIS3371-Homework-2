@@ -1,18 +1,18 @@
 /*advanced editing for first name*/
 document.addEventListener("DOMContentLoaded", function () {
-  
+   // Get the input field and error message elements
    let firstnameInput = document.getElementById("firstname");
    let errorMessage = document.getElementById("errorFirstname");
 
 
-
-
+   // Ensure elements exist before adding event listener
    if (!firstnameInput || !errorMessage) {
        console.error("Error: firstname or errorFirstname not found in the document.");
        return; // Stop the script if elements are missing
    }
 
 
+   // Listen for user input (typing, deleting, pasting, etc.)
    firstnameInput.addEventListener("input", function () {
        let validPattern = /^[a-zA-Z'-]+$/; // Only letters, apostrophes, and dashes allowed
 
@@ -73,47 +73,6 @@ document.addEventListener("DOMContentLoaded", function () {
        }
    });
 });
-// Email validation
-document.getElementById("email").addEventListener("input", function () {
-   let email = this.value.toLowerCase();
-   let errorMessage = document.getElementById("emailError");
-   let validPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-   if (!validPattern.test(email)) {
-       errorMessage.textContent = "Enter a valid email format (name@domain.tld)";
-   } else {
-       errorMessage.textContent = "";
-   }
-});
-function validateAllFields() {
-   let errors = 0;
-
-
-   if (document.getElementById("errorFirstname").textContent !== "") errors++;
-   if (document.getElementById("midinitial-error").textContent !== "") errors++;
-   if (document.getElementById("errorLastname").textContent !== "") errors++;
-   if (document.getElementById("errorDob").textContent !== "") errors++;
-   if (document.getElementById("errorSsn").textContent !== "") errors++;
-   if (document.getElementById("errorUserid").textContent !== "") errors++;
-   if (document.getElementById("errorPassword").textContent !== "") errors++;
-   if (document.getElementById("errorConfirmPassword").textContent !== "") errors++;
-   if (document.getElementById("emailError") && document.getElementById("emailError").textContent !== "") errors++;
-
-
-   // Check required fields are not blank
-   const requiredFields = ["firstname", "lastname", "dob", "ssn", "address1", "city", "state", "zip", "email", "userid", "password", "confirmPassword"];
-   requiredFields.forEach(id => {
-       if (!document.getElementById(id).value.trim()) errors++;
-   });
-
-
-   if (errors === 0) {
-       document.getElementById("submitBtn").style.display = "inline";
-       alert("All fields validated successfully. You can now submit.");
-   } else {
-       document.getElementById("submitBtn").style.display = "none";
-       alert("Please correct the errors before submitting.");
-   }
-}
 
 
 /* DOB advanced editing*/
@@ -152,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-// SSN
+/* SSN*/
 document.addEventListener("DOMContentLoaded", function () {
    let ssnInput = document.getElementById("ssn");
    let errorMessage = document.getElementById("errorSsn");
@@ -181,6 +140,7 @@ document.addEventListener("DOMContentLoaded", function () {
        ssnInput.value = inputValue;
 
 
+       // Store the full SSN
        originalSSN = inputValue;
 
 
@@ -290,7 +250,7 @@ document.addEventListener("DOMContentLoaded", function () {
        }
    });
 });
-// zip code
+/* zip code*/
 document.addEventListener("DOMContentLoaded", function () {
    let zipInput = document.getElementById("zip");
    let errorMessage = document.getElementById("errorZip");
@@ -366,7 +326,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
    // Convert to lowercase on form submission
-   document.getElementById("userInfo").addEventListener("submit", function (event) {
+   document.getElementById("myForm").addEventListener("submit", function (event) {
        userIdInput.value = userIdInput.value.toLowerCase();
 
 
@@ -448,7 +408,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
    // Prevent form submission if password is invalid
-   document.getElementById("userInfo").addEventListener("submit", function (event) {
+   document.getElementById("myForm").addEventListener("submit", function (event) {
        if (!validatePassword() || !validateConfirmPassword()) {
            event.preventDefault(); // Prevent form submission
            alert("Please correct the password errors before submitting.");
@@ -466,10 +426,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
    form.addEventListener("submit", function (event) {
-       event.preventDefault(); // Stop page refresh
+       event.preventDefault(); // ✅ Stop page refresh
 
 
-       // Debugging: Ensure JavaScript is running
+       // ✅ Debugging: Ensure JavaScript is running
        console.log("Submit button clicked! Preventing default submission.");
 
 
@@ -510,7 +470,7 @@ document.addEventListener("DOMContentLoaded", function () {
        `;
 
 
-       // Ensure modal is triggered
+       //Debugging: Ensure modal is triggered
        console.log("Displaying modal...");
        modal.style.display = "block";
    });
@@ -530,414 +490,10 @@ document.addEventListener("DOMContentLoaded", function () {
    };
 
 
+   // Function to submit form after confirmation
    window.submitFinalForm = function () {
-       console.log("Form confirmed, redirecting to thank you page...");
+       console.log("Form confirmed, submitting...");
        modal.style.display = "none";
-      window.location.href = "thankyouHW3.html";
+       form.submit();
    };
 });
-// double checking validation forms
-document.addEventListener("DOMContentLoaded", function () {
-   document.getElementById("validateBtn").addEventListener("click", function () {
-       let errors = 0;
-
-
-
-
-       // Gather error IDs
-       const errorIds = [
-           "errorFirstname", "midinitial-error", "errorLastname",
-           "errorDob", "errorSsn", "errorUserid",
-           "errorPassword", "errorConfirmPassword", "errorZip", "errorState", "emailError"
-       ];
-
-
-       // Count existing error messages
-       errorIds.forEach(id => {
-           let el = document.getElementById(id);
-           if (el && el.textContent.trim() !== "") errors++;
-       });
-
-
-       // Check required fields are not blank
-       const requiredFields = [
-           "firstname", "lastname", "dob", "ssn", "address1",
-           "city", "state", "zip", "email", "userid", "password", "confirmPassword"
-       ];
-
-
-       requiredFields.forEach(id => {
-           let el = document.getElementById(id);
-           if (el && el.value.trim() === "") errors++;
-       });
-
-
-       // Show/hide submit button
-       if (errors === 0) {
-           document.getElementById("submitBtn").style.display = "inline";
-           alert("All fields are valid. You can now submit.");
-       } else {
-           document.getElementById("submitBtn").style.display = "none";
-           alert("Please fix all errors before submitting.");
-       }
-   });
-});
-// --- Cookie Utilities ---
-function setCookie(name, value, hours) {
- const expiry = new Date(Date.now() + hours * 60 * 60 * 1000).toUTCString();
- document.cookie = `${name}=${value}; expires=${expiry}; path=/`;
-}
-
-
-function getCookie(name) {
- const value = `; ${document.cookie}`;
- const parts = value.split(`; ${name}=`);
- return parts.length === 2 ? parts.pop().split(';')[0] : null;
-}
-
-
-function deleteCookie(name) {
- document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/`;
-}
-
-
-// --- Date Setup ---
-function setCurrentDate() {
- const options = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
- const today = new Date();
- const dateEl = document.getElementById("date");
- if (dateEl) dateEl.textContent = `Today is: ${today.toLocaleDateString('en-US', options)}`;
-}
-
-
-// --- Header Update Logic (index.html only) ---
-function initializeHeader() {
- setCurrentDate();
- const name = getCookie("firstname");
- const welcome = document.getElementById("welcomeMsg");
- const newUserOption = document.getElementById("newUserOption");
-
-
- if (name) {
-   welcome.textContent = `Welcome back, ${name}!`;
-   newUserOption.innerHTML = `
-     <label>
-       <input type="checkbox" onclick="startNewUser()"> Not ${name}? Click here to start as a new user.
-     </label>`;
- } else {
-   welcome.textContent = "Welcome New User!";
- }
-}
-
-
-// --- Reset cookie and reload page ---
-function startNewUser() {
- deleteCookie("firstname");
- location.reload();
-}
-
-
-// --- Handle form.html submission ---
-function handleFormSubmit(e) {
- e.preventDefault();
- const name = document.getElementById("firstname").value.trim();
- const remember = document.getElementById("rememberMe").checked;
-
-
- if (remember && name) {
-   setCookie("firstname", name, 48); // Save for 48 hours
-   alert("Your name has been saved.");
- } else {
-   deleteCookie("firstname");
-   alert("Your name was not saved.");
- }
-
-
- // Simulate form submission success
- document.getElementById("userForm").reset();
-}
-
-
-// --- Handle reset button ---
-function handleFormReset() {
- deleteCookie("firstname");
-}
-window.addEventListener("DOMContentLoaded", () => {
- const firstnameInput = document.getElementById("firstname");
- if (firstnameInput) {
-   const savedName = getCookie("firstname");
-   if (savedName) {
-     firstnameInput.value = savedName;
-   }
- }
-});
-
-
-Iframeform 
-<!DOCTYPE html>
-<html lang="en">
-<head>
- <meta charset="UTF-8">
- <title>Sunny Medical Form</title>
- <link rel="stylesheet" href="HW4.css">
- <script src="HW4JS.js" defer></script>
-</head>
-<body>
- <form id="userForm" onsubmit="handleFormSubmit(event)">
-   <table>
-     <tr><th align="left">Set up a new profile</th></tr>
-
-
-     <!-- First, Middle, and Last Name -->
-     <tr>
-       <td>First Name:</td>
-       <td><input type="text" id="firstname" name="firstname" placeholder="Enter your first name">
-       <p id="errorFirstname" style="color: red; font-size: 12px;"></p></td>
-
-
-       <td>Middle Initial:</td>
-       <td><input type="text" id="midinitial" name="midinitial" size="1" maxlength="1" placeholder="A">
-       <p id="midinitial-error" style="color: red; font-size: 12px;"></p></td>
-
-
-       <td>Last Name:</td>
-       <td><input type="text" id="lastname" name="lastname" maxlength="30" placeholder="Enter your last name">
-       <p id="errorLastname" style="color: red; font-size: 12px;"></p></td>
-     </tr>
-
-
-     <!-- DOB, SSN -->
-     <tr>
-       <td>Date of Birth (MM/DD/YYYY):</td>
-       <td><input type="text" id="dob" name="dob" placeholder="MM/DD/YYYY">
-       <p id="errorDob" style="color: red; font-size: 12px;"></p></td>
-     </tr>
-     <tr>
-       <td>Social Security Number:</td>
-       <td><input type="password" id="ssn" name="ssn" maxlength="11" placeholder="XXX-XX-XXXX">
-       <p id="errorSsn" style="color: red; font-size: 12px;"></p></td>
-     </tr>
-
-
-     <!-- Phone and Address -->
-     <tr>
-       <td>Phone Number:</td>
-       <td><input type="text" id="phone" name="phone" maxlength="10" placeholder="000-000-0000"></td>
-     </tr>
-     <tr>
-       <td>Address Line 1:</td>
-       <td><input type="text" id="address1" name="address1" minlength="2" maxlength="30"></td>
-     </tr>
-     <tr>
-       <td>Address Line 2:</td>
-       <td><input type="text" id="address2" name="address2" minlength="2" maxlength="30"></td>
-     </tr>
-     <tr>
-       <td>City:</td>
-       <td><input type="text" id="city" name="city" minlength="2" maxlength="30"></td>
-     </tr>
-     <tr>
-       <td>State:</td>
-       <td>
-         <select id="state" name="state">
-         <option value="">Select State</option>
-         </select>
-         <p id="errorState" style="color: red; font-size: 12px;"></p>
-         </td>
-       </td>
-     </tr>
-     <tr>
-       <td>Zip Code:</td>
-       <td><input type="text" id="zip" name="zip" minlength="5" maxlength="10" placeholder="12345 or 12345-6789">
-       <p id="errorZip" style="color: red; font-size: 12px;"></p></td>
-     </tr>
-
-
-     <!-- Email -->
-     <tr>
-       <td>Email Address:</td>
-       <td><input type="email" id="email" name="email" placeholder="name@domain.tld">
-       <p id="emailError" style="color: red; font-size: 12px;"></p></td>
-     </tr>
-
-
-     <!-- Symptoms Description -->
-     <tr>
-       <td>Describe Your Current Symptoms:</td>
-       <td><textarea id="symptoms" name="symptoms" rows="3" placeholder="Describe your symptoms here..."></textarea></td>
-     </tr>
-
-
-     <!-- Checkboxes for symptoms -->
-     <tr>
-       <td>Current Symptoms:</td>
-       <td>
-         <input type="checkbox" id="fever" name="symptoms" value="fever"> Fever<br>
-         <input type="checkbox" id="headache" name="symptoms" value="headache"> Headache<br>
-         <input type="checkbox" id="nausea" name="symptoms" value="nausea"> Nausea<br>
-         <input type="checkbox" id="vomiting" name="symptoms" value="vomiting"> Vomiting<br>
-         <input type="checkbox" id="none" name="symptoms" value="none"> None
-       </td>
-     </tr>
-
-
-     <!-- Gender -->
-     <tr>
-       <td>Gender:</td>
-       <td>
-         <input type="radio" id="male" name="gender" value="Male"> Male
-         <input type="radio" id="female" name="gender" value="Female"> Female
-       </td>
-     </tr>
-
-
-     <!-- Pregnancy and Allergies -->
-     <tr>
-       <td>Pregnant:</td>
-       <td>
-         <input type="radio" id="pregnant_yes" name="pregnant" value="Yes"> Yes
-         <input type="radio" id="pregnant_no" name="pregnant" value="No"> No
-       </td>
-     </tr>
-     <tr>
-       <td>Allergies:</td>
-       <td>
-         <input type="radio" id="allergies_yes" name="allergies" value="Yes"> Yes
-         <input type="radio" id="allergies_no" name="allergies" value="No"> No
-       </td>
-     </tr>
-
-
-     <!-- Health Slider -->
-     <tr>
-       <td>Rate Your Health (1-10):</td>
-       <td>
-         <input type="range" id="health" name="health" min="1" max="10" value="5" oninput="document.getElementById('healthValue').textContent = this.value">
-         <span id="healthValue">5</span>
-       </td>
-     </tr>
-
-
-     <!-- User ID and Password -->
-     <tr>
-       <td>Desired User ID:</td>
-       <td><input type="text" id="userid" name="userid" placeholder="Enter User ID">
-       <p id="errorUserid" style="color: red; font-size: 12px;"></p></td>
-     </tr>
-     <tr>
-       <td>Password:</td>
-       <td><input type="password" id="password" name="password" placeholder="Enter password">
-       <p id="errorPassword" style="color: red; font-size: 12px;"></p></td>
-     </tr>
-     <tr>
-       <td>Re-enter Password:</td>
-       <td><input type="password" id="confirmPassword" name="confirmPassword" placeholder="Re-enter password">
-       <p id="errorConfirmPassword" style="color: red; font-size: 12px;"></p></td>
-     </tr>
-
-
-     <!-- Remember Me -->
-     <tr>
-       <td>Remember Me:</td>
-       <td>
-         <input type="checkbox" id="rememberMe" checked> Save my name for next time
-       </td>
-     </tr>
-
-
-     <!-- Buttons -->
-     <tr>
-       <td colspan="2">
-         <button type="submit">Submit</button>
-         <button type="reset" onclick="handleFormReset()">Clear and Start Over</button>
-       </td>
-     </tr>
-   </table>
- </form>
-</body>
-</html>
-
-Testing script js 
-// --- Cookie Utilities ---
-function setCookie(name, value, hours) {
- const expiry = new Date(Date.now() + hours * 60 * 60 * 1000).toUTCString();
- document.cookie = `${name}=${value}; expires=${expiry}; path=/`;
-}
-
-
-function getCookie(name) {
- const value = `; ${document.cookie}`;
- const parts = value.split(`; ${name}=`);
- return parts.length === 2 ? parts.pop().split(';')[0] : null;
-}
-
-
-function deleteCookie(name) {
- document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/`;
-}
-
-
-// --- Date Setup ---
-function setCurrentDate() {
- const options = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
- const today = new Date();
- const dateEl = document.getElementById("date");
- if (dateEl) dateEl.textContent = `Today is: ${today.toLocaleDateString('en-US', options)}`;
-}
-
-
-// --- Header Update Logic (index.html only) ---
-function initializeHeader() {
- setCurrentDate();
- const name = getCookie("firstname");
- const welcome = document.getElementById("welcomeMsg");
- const newUserOption = document.getElementById("newUserOption");
-
-
- if (name) {
-   welcome.textContent = `Welcome back, ${name}!`;
-   newUserOption.innerHTML = `
-     <label>
-       <input type="checkbox" onclick="startNewUser()"> Not ${name}? Click here to start as a new user.
-     </label>`;
- } else {
-   welcome.textContent = "Welcome New User!";
- }
-}
-
-
-// --- Reset cookie and reload page ---
-function startNewUser() {
- deleteCookie("firstname");
- location.reload();
-}
-
-
-// --- Handle form.html submission ---
-function handleFormSubmit(e) {
- e.preventDefault();
- const name = document.getElementById("firstname").value.trim();
- const remember = document.getElementById("rememberMe").checked;
-
-
- if (remember && name) {
-   setCookie("firstname", name, 48); // Save for 48 hours
-   alert("Your name has been saved.");
- } else {
-   deleteCookie("firstname");
-   alert("Your name was not saved.");
- }
-
-
- // Simulate form submission success
- document.getElementById("userForm").reset();
-}
-
-
-// --- Handle reset button ---
-function handleFormReset() {
- deleteCookie("firstname");
-}
-
-
-
