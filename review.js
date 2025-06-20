@@ -45,29 +45,32 @@ document.addEventListener("DOMContentLoaded", function () {
         let zip = getValue("zip");
         zip = zip.includes("-") ? zip.split("-")[0] : zip;
 
+        const phone = getValue("phone");
+        
         const content = `
             <strong>First, MI, Last Name:</strong> ${getValue("fname")} ${getValue("mname")} ${getValue("lname")}<br>
             <strong>Date of Birth:</strong> ${dobInput}<br>
             <strong>Email:</strong> ${getValue("email")}<br>
-            <strong>Phone:</strong> <i>(Not included in this version)</i><br><br>
-
+            <strong>Phone Number:</strong> ${phone}<br><br>
+        
             <strong>Address:</strong><br>
             ${getValue("address1")}${getValue("address2") ? ", " + getValue("address2") : ""}<br>
             ${getValue("city")}, ${getValue("state")} ${zip}<br><br>
-
+        
             <strong>Health History:</strong><br>
             ${["chickenpox", "measles", "covid", "smallpox", "tetanus"].map(id => 
                 document.getElementById(id).checked ? `${id.charAt(0).toUpperCase() + id.slice(1)}: Y` : `${id.charAt(0).toUpperCase() + id.slice(1)}: N`
             ).join("<br>")}<br><br>
-
+        
             <strong>Vaccinated?:</strong> ${getSelectedRadio("vaccinated")}<br>
             <strong>Health Rating:</strong> ${getValue("range")}<br><br>
-
+        
             <strong>Described Symptoms:</strong><br>${getValue("notes") || "(None)"}<br><br>
-
+        
             <strong>User ID:</strong> ${userId}<br>
             <strong>Password:</strong> ******** (hidden for security)
         `;
+
 
         reviewContent.innerHTML = content;
         modal.style.display = "block";
