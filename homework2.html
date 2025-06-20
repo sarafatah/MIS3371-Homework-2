@@ -1,221 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-   <title>Sunny Medical Profile Setup</title>
-   <link rel="stylesheet" href="homework2.css">
-   <script>
-       // to display current date
-       function formatDate() {
-           const options = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
-           const today = new Date();
-           document.getElementById('date').textContent = `Today is: ${today.toLocaleDateString('en-US', options)}`;
-       }
-       window.onload = formatDate;
-   </script>
-
-
-   <!-- HEADER -->
-   <head>
-          <div id="header">
-           <table style="width: 100%;">
-       <tr>
-           <td style="vertical-align: top;">
-               <img src="hw2.jpeg" width="300" height="200" alt="medicine"><br>
-               <h1>Sunny Medical</h1>
-           </td>
-           <td style="text-align: right; vertical-align: bottom;">
-               <p id="date">Today is: </p>
-           </td>
-       </tr>
-   </table>
-       </div>
-   </head>
-   <hr>
+<head>
+    <meta charset="UTF-8">
+    <title>Summit Medical - Patient Review Form</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="hw1.js"></script>
+    <script defer src="review.js"></script>
+</head>
 <body>
-   <!-- BODY SECTION -->
-   <div id="body">
-       <form= "userInfo">
-           <table>
-               <!-- Profile Setup -->
-               <tr><th align="left">Set up a new profile</th></tr>
-               <!-- Name -->
-               <tr>
-                       <td>First Name:</td>
-                       <td><label for="firstname"></label>
-                               <input type="text" id="firstname" placeholder="Enter your first name">
-                                <p id="errorFirstname" style="color: red; font-size: 12px;"></p>
-                       </td>
-                       <td>Middle Initial:</td>
-                       <td><input type="text" id="midinitial" name="midinitial" size="1" maxlength="1" placeholder="A">
-                           <p id="midinitial-error" style="color: red; font-size: 12px;"></p>
-                       </td>
-                       <td>Last Name:</td>
-                       <td><input type="text" id="lastname" name="lastname" maxlength="30" placeholder="Enter your last name">
-                           <p id="errorLastname" style="color: red"; font-size="12px;"></p>   
-                       </td>
-               </tr>
-               <!-- DOB and SSN -->
-               <tr>
-                   <td>Date of Birth (MM/DD/YYYY):</td>
-                   <td><input type="text" id="dob" name="dob" placeholder="MM/DD/YYYY">
-                       <p id="errorDob" style="color: red; font-size: 12px;"></p>
-                   </td>
-               </tr>
-               <tr>
-                   <td>Social Security Number:</td>
-                   <td><input type="password" id="ssn" name="ssn" maxlength="11" placeholder="XXX-XX-XXXX">
-                   <p id="errorSsn" style="color: red; font-size: 12px;"></p>
-                   </td>
-               </tr>
-               <!-- PHONE NUMBER -->
-               <tr>
-                   <td>Phone Number:</td>
-                   <td><input type="phone" id="phone" name="phone" maxlength="10" placeholder="000-000-0000">
-                   </td>
-               <!-- Address -->
-               <tr>
-                   <td>Address Line 1:</td>
-                   <td><input type="text" id="address1" name="address1" minlength="2" maxlength="30"></td>
-               </tr>
-               <tr>
-                   <td>Address Line 2:</td>
-                   <td><input type="text" id="address2" name="address2"  minlength="2" maxlength="30"></td>
-               </tr>
-               <tr>
-                   <td>City:</td>
-                   <td><input type="text" id="city" name="city" minlength="2" maxlength="30"></td>
-               </tr>
-               <tr>
-                   <td>State:</td>
-                   <td>
-                       <select id="state" name="state">
-                             <option value="">Select State</option>
-                       </select>
-                       <p id="errorState" style="color: red; font-size: 12px;"></p>
-                   </td>
-               </tr>
-               <tr>
-                   <td>Zip Code:</td>
-                   <td><input type="text" id="zip" name="zip" minlength="5" maxlength="10" placeholder="12345 or 12345-6789">
-                   <p id="errorZip" style="color: red; font-size: 12px;"></p>
-                   </td>
-               </tr>
-               <!-- Contact Info -->
-               <tr>
-                   <td>Email Address:</td>
-                   <td><input type="email" id="email" name="email" placeholder="name@domain.tld"></td>
-               </tr>
-               <!-- Symptoms -->
-               <tr>
-                   <td>Describe Your Current Symptoms:</td>
-                   <td><textarea id="symptoms" name="symptoms" rows="3" placeholder="Describe your symptoms here..."></textarea></td>
-               </tr>
-               <!-- Checkboxes for Symptoms -->
-               <tr>
-                   <td>Current Symptoms:</td>
-                   <td>
-                       <input type="checkbox" id="fever" name="symptoms" value="fever"> Fever<br>
-                       <input type="checkbox" id="headache" name="symptoms" value="headache"> Headache<br>
-                       <input type="checkbox" id="nausea" name="symptoms" value="nausea"> Nausea<br>
-                       <input type="checkbox" id="vomiting" name="symptoms" value="vomiting"> Vomiting<br>
-                       <input type="checkbox" id="none" name="symptoms" value="none"> None
-                   </td>
-               </tr>
-               <!-- Gender -->
-               <tr>
-                   <td>Gender:</td>
-                   <td>
-                       <input type="radio" id="male" name="gender" value="Male"> Male
-                       <input type="radio" id="female" name="gender" value="Female"> Female
-                   </td>
-               </tr>
-               <!-- Pregnancy and allergies -->
-               <tr>
-                   <td>Pregnant:</td>
-                   <td>
-                       <input type="radio" id="pregnant_yes" name="pregnant" value="Yes"> Yes
-                       <input type="radio" id="pregnant_no" name="pregnant" value="No"> No
-                   </td>
-               </tr>
-               <tr>
-                   <td>Allergies:</td>
-                   <td>
-                       <input type="radio" id="allergies_yes" name="allergies" value="Yes"> Yes
-                       <input type="radio" id="allergies_no" name="allergies" value="No"> No
-                   </td>
-               </tr>
-               <!-- Health slider -->
-               <tr>
-                   <td>Rate Your Health (1-10):</td>
-                   <td>
-                       <input type="range" id="health" name="health" min="1" max="10" value="5" oninput="document.getElementById('healthValue').textContent = this.value">
-                       <span id="healthValue">5</span>
-                   </td>
-               </tr>
-           </table>
-               <!-- user ID and password -->
-               <form id="userInfo">
+    <header>
+        <table width="100%">
+            <tr>
+                <td valign="top" align="left" width="20%">
+                    <div class="image">
+                        <img src="cliniclogo.png" alt="Clinic Logo" width="80px" />
+                    </div>
+                </td>
+                <td><h2>Summit Medical</h2></td>
+                <td valign="bottom" align="right" width="20%">
+                    <p>Today's Date: <span id="today"></span></p>
+                </td>
+            </tr>
+        </table>
+    </header>
+    <hr>
+    <form id="registrationForm">
+        <div class="format">
             <table>
-               <tr>
-                   <td>Desired User ID:</td>
-                   <td><input type="text" id="userid" name="userid" placeholder="Enter User ID"
-                   <p id="errorUserid" style="color: red; font-size: 12px;"></p>
-                   </td>
-               </tr>
-               <tr>
-                   <td>Password:</td>
-                   <td><input type="password" id="password" name="password" placeholder="Enter password">
-                <p id="errorPassword" style="color: red; font-size: 12px;"></p>
-                   </td>
-               </tr>
-               <tr>
-                   <td>Re-enter Password:</td>
-                   <td><input type="password" id="confirmPassword" name="confirmPassword" placeholder="Re-enter password">
-                   <p id="errorConfirmPassword" style="color: red; font-size: 12px;"></p>
-                   </td>
-              
-               <!-- Submit reset buttons -->
-              <tr>
-                   <td colspan="2">
-                       <button type="submit">Submit</button>
-                       <button type="reset">Clear and Start Over</button>
-                   </td>
-               </tr>
-           </table>
-       </form>
-   </div>
+                <tr>
+                    <td class="td1"><label for="fname">First Name:</label></td>
+                    <td><input type="text" name="fname" id="fname" maxlength="30" required pattern="[a-zA-Z'-]{1,30}" title="Letters, apostrophes, and dashes only."></td>
+                    <td class="td1"><label for="mname">Middle Initial:</label></td>
+                    <td><input type="text" name="mname" id="mname" maxlength="1" size="3" pattern="[a-zA-Z]?" title="One letter only or leave blank."></td>
+                    <td class="td1"><label for="lname">Last Name:</label></td>
+                    <td><input type="text" name="lname" id="lname" maxlength="30" required pattern="[a-zA-Z'\-2-5]{1,30}" title="Letters, apostrophes, numbers 2-5, and dashes only."></td>
+                </tr>
+                <tr>
+                    <td class="td1"><label for="dob">Date of Birth:</label></td>
+                    <td><input type="date" id="dob" name="dob" required></td>
+                </tr>
+                <tr>
+                    <td class="td1"><label for="ssn">Social Security:</label></td>
+                    <td><input type="password" name="ssn" id="ssn" maxlength="11" required title="Format: XXX-XX-XXXX"></td>
+                </tr>
+                <tr>
+                    <td class="td1"><label for="address1">Address Line 1:</label></td>
+                    <td><input type="text" name="address1" id="address1" maxlength="30" required title="Required field, 2 to 30 characters."></td>
+                </tr>
+                <tr>
+                    <td class="td1"><label for="address2">Address Line 2:</label></td>
+                    <td><input type="text" name="address2" id="address2" maxlength="30" title="Optional, 2 to 30 characters if filled."></td>
+                </tr>
+                <tr>
+                    <td class="td1" colspan="4">
+                        <label for="city">City:</label>
+                        <input type="text" name="city" id="city" maxlength="30" required pattern=".{2,30}" title="City name, 2 to 30 characters." style="width: 140px; margin-right: 20px;">
+                        <label for="state">State:</label>
+                        <select id="state" name="state" required title="Select a valid state." style="width: 140px; margin-right: 20px;">
+                            <option value="" disabled selected>Select State</option>
+                            <!-- State options populated via JS -->
+                        </select>
+                        <label for="zip">Zip Code:</label>
+                        <input type="text" name="zip" id="zip" maxlength="10" required pattern="\d{5}(-\d{4})?" title="ZIP code: 12345 or 12345-6789" style="width: 100px;">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td1"><label for="email">Email Address:</label></td>
+                    <td><input type="email" name="email" id="email" required title="Enter a valid email format: name@domain.tld"></td>
+                </tr>
+                <tr>
+                    <td class="td1"><label>Have you had:</label></td>
+                    <td colspan="3">
+                        <input type="checkbox" id="chickenpox" value="Chicken Pox"> Chicken Pox
+                        <input type="checkbox" id="measles" value="Measles"> Measles
+                        <input type="checkbox" id="covid" value="Covid-19"> Covid-19
+                        <input type="checkbox" id="smallpox" value="Small Pox"> Small Pox
+                        <input type="checkbox" id="tetanus" value="Tetanus"> Tetanus
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td1"><label for="notes">Current Symptoms:</label></td>
+                    <td colspan="3"><textarea id="notes" name="notes" rows="3" cols="50" placeholder="Enter your symptoms here:"></textarea></td>
+                </tr>
+                <tr>
+                    <td class="td1"><label>Gender:</label></td>
+                    <td colspan="3">
+                        <input type="radio" name="gender" value="Male"> Male
+                        <input type="radio" name="gender" value="Female"> Female
+                        <input type="radio" name="gender" value="Other"> Other
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td1"><label>Vaccinated:</label></td>
+                    <td colspan="3">
+                        <input type="radio" name="vaccinated" value="Yes"> Yes
+                        <input type="radio" name="vaccinated" value="No"> No
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td1"><label>Health Rating (1-10):</label></td>
+                    <td colspan="3">
+                        <input type="range" name="range" id="range" min="1" max="10" value="5" oninput="document.getElementById('range-slider').textContent = this.value">
+                        <span id="range-slider">5</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td1"><label for="uid">User ID:</label></td>
+                    <td><input type="text" name="uid" id="uid" maxlength="30" required pattern="[a-zA-Z][a-zA-Z0-9_-]{4,29}" title="5-30 characters. Letters, numbers, dashes, and underscores only. No spaces. Cannot start with a number."></td>
+                </tr>
+                <tr>
+                    <td class="td1"><label for="pword">Password:</label></td>
+                    <td><input type="password" name="pword" id="pword" minlength="8" maxlength="30" required title="8-30 chars, must include upper, lower, number, and special char. No quotes."></td>
+                </tr>
+                <tr>
+                    <td class="td1"><label for="pword2">Re-enter Password:</label></td>
+                    <td><input type="password" name="pword2" id="pword2" minlength="8" maxlength="30" required title="Must match the password."></td>
+                </tr>
+            </table>
 
+            <div style="text-align: center; margin-top: 20px;">
+                <input type="submit" value="Submit">
+                <button type="button" id="reviewButton">Review</button>
+                <input type="reset" value="Reset">
+            </div>
+        </div>
+    </form>
 
-   <!-- POP UP MODAL -->
-   <div id="confirmationModal" style="display:none; position: fixed; top: 20%; left: 30%; background: lightblue; padding: 20px; border: 1px solid black;">
-       <div id="modalContent"></div>
-       <button id="closeModal">Close</button>
-   </div>
+    <!-- REVIEW SECTION -->
+    <div id="reviewSection" style="display:none; margin: 40px auto; width: 90%; background: #fffbe6; padding: 20px; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.2);">
+        <h3 style="text-align:center; color:#004080;">PLEASE REVIEW THIS INFORMATION</h3>
+        <div id="reviewContent"></div>
+    </div>
 
-
-   <!-- Load JavaScript -->
-   <script src="homework2-1.js"></script>
+    <footer>
+        <p>&#169; 2025 Summit Medical | PO Box 18518 | Richmond TX 77407 | <a href="contact.html">Contact Us!</a></p>
+    </footer>
 </body>
-   <hr>
-
-
-   <!-- FOOTER SECTION -->
-   <div id="footer">
-       <table>
-           <tr>
-               <td>
-                   <button onclick="alert('Contact us at support@example.com')">Contact Us</button>
-               </td>
-           </tr>
-           <tr>
-               <td>
-                   <address>
-                       Written by Emma S.<br>
-                       Visit Us: 1234 Way To Go Lane, USA
-                   </address>
-               </td>
-           </tr>
-       </table>
-   </div>
 </html>
 
 
