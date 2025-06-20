@@ -126,12 +126,15 @@
         </div>
     </form>
 
-    <!-- REVIEW SECTION -->
-    <div id="reviewSection" style="display:none; margin: 40px auto; width: 90%; background: #fffbe6; padding: 20px; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.2);">
+    <!-- MODAL REVIEW SECTION -->
+    <div id="reviewModal" style="display:none; position: fixed; top: 10%; left: 10%; width: 80%; background: #fffbe6; padding: 20px; border: 2px solid #004080; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.4); z-index: 1000;">
         <h3 style="text-align:center; color:#004080;">PLEASE REVIEW THIS INFORMATION</h3>
         <div id="reviewContent"></div>
+        <div style="text-align:center; margin-top: 20px;">
+            <button onclick="confirmSubmit()">Confirm & Submit</button>
+            <button onclick="document.getElementById('reviewModal').style.display='none'">Close</button>
+        </div>
     </div>
-
     <footer>
         <p>&#169; 2025 Summit Medical | PO Box 18518 | Richmond TX 77407 | <a href="contact.html">Contact Us!</a></p>
     </footer>
