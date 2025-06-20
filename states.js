@@ -1,3 +1,11 @@
+/* 
+ Name: Sara Fatah
+ File: states.js
+ Date Created: 06/18/25
+ Date Updated: 06/20/25
+ Purpose: create a list of states for the website
+*/
+
 document.addEventListener("DOMContentLoaded", function () {
     const stateSelect = document.getElementById("state");
 
