@@ -145,12 +145,19 @@ Description: patient registration form
                 </tr>
                 
 
-                <!-- EMAIL -->
+                <!-- EMAIL AND PHONE NO. -->
                 <tr>
                     <td class="td1"><label for="email">Email Address:</label></td>
                     <td><input type="email" name="email" id="email" required></td>
                 </tr>
-
+                <tr>
+                    <td class="td1"><label for="phone">Phone Number:</label></td><td><input id="phone" name="phone" pattern="\d{3}-\d{3}-\d{4}" required="True" title="Format: 000-000-0000" type="tel"/>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
                 <!-- CHECKBOXES -->
             <tr>
                 <td class="td1"><label>Check all that apply:<br>Have you had:</label></td>
