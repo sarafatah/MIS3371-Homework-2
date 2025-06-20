@@ -1,3 +1,11 @@
+/* 
+ Name: Sara Fatah
+ File: review.js
+ Date Created: 06/18/25
+ Date Updated: 06/20/25
+ Purpose: Redisplay/validate data from a form
+*/
+
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("registrationForm");
     const reviewBtn = document.getElementById("reviewButton");
