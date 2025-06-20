@@ -3,7 +3,7 @@
  File: states.js
  Date Created: 06/18/25
  Date Updated: 06/20/25
- Purpose: create a list of states for the website
+ Purpose: create a list of states for my website
 */
 
 document.addEventListener("DOMContentLoaded", function () {
