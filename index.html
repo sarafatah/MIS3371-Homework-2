@@ -241,43 +241,50 @@ Description: patient registration form
                   <td class="td1"><label for="salary">Desired Salary:</label></td>
                   <td colspan="3">
                     <input type="range" name="salary" id="salary" min="20000" max="200000" step="1000" value="60000" oninput="updateSalaryLabel(this.value)">
-                    <span id="salaryLabel">$60,000</span>
+                    <span id="salaryLabel">$60,000</span> <br>
                   </td>
                 </tr>
 
                 <!-- PRICE RANGE SECTION -->
-                <tr>
-                  <td class="td1"><label>Home Budget Range:</label></td>
-                  <td colspan="3">
-                    <label for="minPrice">Min:</label>
-                    <input type="range" id="minPrice" name="minPrice" min="50000" max="1000000" step="10000" value="100000">
-                    <span id="minPriceLabel">$100,000</span><br><br>
-                
-                    <label for="maxPrice">Max:</label>
-                    <input type="range" id="maxPrice" name="maxPrice" min="50000" max="1000000" step="10000" value="500000">
-                    <span id="maxPriceLabel">$500,000</span>
-                  </td>
-                </tr>
-
-
+             <tr>
+              <td class="td1"><label>Home Budget Range:</label></td>
+              <td colspan="3">
+                <div style="margin-bottom: 15px;">
+                  <label for="minPrice" style="display:inline-block; width: 60px;">Min:</label>
+                  <input type="range" id="minPrice" name="minPrice" min="50000" max="1000000" step="10000" value="100000" style="width: 300px;">
+                  <span id="minPriceLabel" style="margin-left: 10px;">$100,000</span>
+                </div>
+            
+                <div>
+                  <label for="maxPrice" style="display:inline-block; width: 60px;">Max:</label>
+                  <input type="range" id="maxPrice" name="maxPrice" min="50000" max="1000000" step="10000" value="500000" style="width: 300px;">
+                  <span id="maxPriceLabel" style="margin-left: 10px;">$500,000</span>
+                </div>
+              </td>
+            </tr>
 
                 <!-- USER ID & PASSWORD -->
                 <tr>
                     <td class="td1"><label for="uid">User ID:</label></td>
-                    <td><input type="text" name="uid" id="uid"
-                   maxlength="30" minlength="5"
-                   pattern="^[a-zA-Z][a-zA-Z0-9_-]{4,29}$"
-                   title="5–30 characters, no spaces or special symbols. First character must be a letter."></td>
+                    <td><input type="text" name="uid" id="uid" maxlength="30" pattern="^[A-Za-z][A-Za-z0-9_-]{4,29}$"
+                        title="5-30 characters. Must start with a letter. Letters, digits, underscore or dash only." required>
+                    </td>
                 </tr>
 
                 <tr>
                     <td class="td1"><label for="pword">Password:</label></td>
-                    <td><input type="password" name="pword" id="pword" minlength="10" required></td>
+                    <td><input type="password" name="pword" id="pword" minlength="8" maxlength="30"
+                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w\s\"])[^\"]+$"
+                    title="8–30 characters. Must include uppercase, lowercase, digit, and a special character. No quotes." required>
+                    </td>
                 </tr>
 
                 <tr>
                     <td class="td1"><label for="pword2">Re-enter Password:</label></td>
-                    <td><input type="password" name="pword2" id="pword2" minlength="10" required></td>
+                    <td><input type="password" name="pword2" id="pword" minlength="8" maxlength="30"
+                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w\s\"])[^\"]+$"
+                    title="8–30 characters. Must include uppercase, lowercase, digit, and a special character. No quotes." required>
+                    </td>
                 </tr>
 
                 <!-- SUBMIT / RESET -->
