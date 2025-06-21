@@ -48,11 +48,20 @@ Description: patient registration form
                 <!-- NAME SECTION -->
                 <tr>
                     <td class="td1"><label for="fname">First Name:</label></td>
-                    <td><input type="text" name="fname" id="fname" maxlength="30" required></td>
+                    <td><input type="text" name="fname" id="fname" maxlength="30" required
+                           pattern="[a-zA-Z'-]{1,30}"
+                           title="Letters, apostrophes, and dashes only. Max 30 characters.">
+                    </td>
                     <td class="td1"><label for="mname">Middle Initial:</label></td>
-                    <td><input type="text" name="mname" id="mname" maxlength="1" size="3"></td>
+                    <td><input type="text" name="mname" id="mname" maxlength="1" size="3"
+                           pattern="[a-zA-Z]?"
+                           title="One letter only (optional)">
+                    </td>
                     <td class="td1"><label for="lname">Last Name:</label></td>
-                    <td><input type="text" name="lname" id="lname" maxlength="30" required></td>
+                    <td><input type="text" name="lname" id="lname" maxlength="30" required
+                           pattern="[a-zA-Z'\\-2-5]{1,30}"
+                           title="Letters, apostrophes, numbers 2–5, and dashes only. Max 30 characters.">
+                    </td>
                 </tr>
 
                 <!-- DOB -->
