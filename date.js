@@ -9,7 +9,7 @@ Description: Homework 1 JS
 //dynamic date js code
 const d = new Date();
 let text = d.toLocaleDateString();
-document.getElementById("today").innerHTML = text;
+document.getElementById("today").innerHTML = text; 
 
 //name slider js code
 let slider = document.getElementById("range");
