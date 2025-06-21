@@ -195,7 +195,11 @@ Description: patient registration form
                 <!-- SYMPTOMS TEXTAREA -->
                 <tr>
                     <td class="td1"><label for="notes">Current Symptoms:</label></td>
-                    <td colspan="3"><textarea id="notes" name="notes" rows="3" cols="50" placeholder="Enter your symptoms here:"></textarea></td>
+                    <td colspan="3"><textarea id="notes" name="notes" rows="3" cols="50"
+                    placeholder="Enter your symptoms here:"
+                    pattern='^[^"]*$'
+                    title='Double quotes (") are not allowed.'></textarea>
+                    </td>
                 </tr>
 
                 <!-- RADIO BUTTONS -->
@@ -233,10 +237,22 @@ Description: patient registration form
                     </td>
                 </tr>
 
+                <tr>
+                  <td class="td1"><label for="salary">Desired Salary:</label></td>
+                  <td colspan="3">
+                    <input type="range" name="salary" id="salary" min="20000" max="200000" step="1000" value="60000" oninput="updateSalaryLabel(this.value)">
+                    <span id="salaryLabel">$60,000</span>
+                  </td>
+                </tr>
+
+
                 <!-- USER ID & PASSWORD -->
                 <tr>
                     <td class="td1"><label for="uid">User ID:</label></td>
-                    <td><input type="text" name="uid" id="uid" maxlength="20" required></td>
+                    <td><input type="text" name="uid" id="uid"
+                   maxlength="30" minlength="5"
+                   pattern="^[a-zA-Z][a-zA-Z0-9_-]{4,29}$"
+                   title="5–30 characters, no spaces or special symbols. First character must be a letter."></td>
                 </tr>
 
                 <tr>
