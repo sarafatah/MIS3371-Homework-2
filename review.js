@@ -26,6 +26,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     reviewBtn.addEventListener("click", function () {
+        let uid = getValue("uid");
+        uid = uid.toLowerCase();
+        document.getElementById("uid").value = uid;
         let password = getValue("pword");
         let confirmPassword = getValue("pword2");
         let userId = getValue("uid");
@@ -85,6 +88,21 @@ document.addEventListener("DOMContentLoaded", function () {
         reviewContent.innerHTML = content;
         modal.style.display = "block";
     });
+
+      function updateSalaryLabel(value) {
+         const formatted = new Intl.NumberFormat('en-US', {
+             style: 'currency',
+             currency: 'USD',
+             maximumFractionDigits: 0
+         }).format(value);
+         document.getElementById("salaryLabel").textContent = formatted;
+     }
+
+const salarySlider = document.getElementById("salary");
+if (salarySlider) {
+    salarySlider.addEventListener("input", () => updateSalaryLabel(salarySlider.value));
+}
+
 
     window.confirmSubmit = function () {
         modal.style.display = "none";
