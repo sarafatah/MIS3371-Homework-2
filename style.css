@@ -1,83 +1,105 @@
+/*
+Name: Sara Fatah
+Date created: 06/10/2025
+Date last edited: 06/13/2025
+Version: 1.0
+Description: Homework 1 CSS 
+*/
+
+header {
+    width: 100%;
+    background-color: #80bfff;
+}
+
 body {
-   margin: 0;
-   font-family: 'Verdana', sans-serif; /* Changed font */
-   background-color: #e0f7fa; /* Light blue background for body */
-   color: #333;
-} 
-
-
-/* Header Section */
-#header{
-   background-color: #fff9c4; /* Light yellow */
-   font-family: 'Georgia', serif;
-   color: #333;
-   font-size: 1em;
+    background: #e6f7ff;
+    margin: 0;
+    padding-top: 20px;
+    min-height: 100vh;
+    font-family: 'Verdana', sans-serif;
 }
 
-
-#date {
-   font-style: italic;
-   color: #555;
-   font-family: 'Courier New', monospace; /* Changed font */
+form {
+    width: 90%;
+    max-width: 950px;
+    margin: 20px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
 }
 
-
-#body th {
-   font-size: 1.5em;
-   color: #000;
-   text-align: left;
-   font-family: 'Tahoma', sans-serif; /* Changed font */
+table {
+    width: 100%;
+    border-spacing: 0px 2px;
 }
 
-
-#body input[type="text"],
-#body input[type="password"],
-#body input[type="email"],
-#body textarea,
-#body select {
-   font-family: 'Lucida Console', monospace; /* Changed font */
+h1, h2 {
+    text-align: center;
+    font-weight: bold;
+    color: #004080;
 }
 
-
-#body button {
-   background-color: #4caf50;
-   color: white;
-   font-family: 'Impact', sans-serif; /* Changed font */
+main {
+    text-align: left;
+    font-weight: normal;
 }
 
+.image {
+    text-align: left;
+}
 
-/* Footer Section */
+.td1 {
+    text-align: right;
+    font-family: "Arial, Helvetica, sans-serif";
+    font-weight: normal;
+}
+
+th {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 #footer {
-   background-color: #c8e6c9; /* Light green */
-   color: #000;
-   font-family: 'Courier New', monospace; /* Changed font */
+    width: 100%;
+    background-color: #cce6ff;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Verdana', sans-serif;
+    color: #333;
 }
 
-
-#footer address {
-   font-family: 'Times New Roman', serif; /* Changed font */
+#footer p {
+    text-align: center;
 }
 
-
-#footer button {
-   background-color: #a5d6a7;
-   color: black;
-   font-family: 'Comic Sans MS', cursive; /* Changed font */
+label {
+    text-align: right;
+    font-family: "Optima", sans-serif;
+    font-weight: normal;
 }
 
-
-/* Hyperlink despite my website not having any*/
-a {
-   color: red;
-   text-decoration: none;
-   font-family: 'Trebuchet MS', sans-serif; /* Changed font */
+input {
+    text-align: left;
+    font-family: "Optima", sans-serif;
+    font-weight: normal;
 }
 
+textarea {
+    text-align: left;
+    font-family: "Optima", sans-serif;
+    font-weight: normal;
+}
 
+#today {
+    text-align: left;
+    font-family: "Optima", sans-serif;
+    font-weight: normal;
+    margin-right: 5px;
+}
 
-
-/* ID Selector Example */
-#userid, #password, #repassword {
-   background-color: #e3f2fd;
-   font-family: 'Palatino Linotype', serif; /* Changed font */
+p {
+    text-align: right;
+    font-family: "Optima", sans-serif;
+    font-weight: normal;
 }
