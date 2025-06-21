@@ -148,20 +148,24 @@ Description: patient registration form
                 
 
                 <!-- EMAIL AND PHONE NO. -->
-                <tr>
-                    <td class="td1"><label for="email">Email Address:</label></td>
-                    <td><input type="email" name="email" id="email" required></td>
-                </tr>
-                <tr>
-                    <td class="td2"><label for="phone">Phone #:</label></td>
-                    <td colspan="4">
-                        <input type="tel" name="phone" id="phone"
-                               pattern="\d{3}-\d{3}-\d{4}"
-                               maxlength="12"
-                               required
-                               title="Format: 000-000-0000 (digits only, use dashes)">
-                    </td>
-                </tr>
+               <tr>
+                <td class="td1"><label for="email">Email Address:</label></td>
+                <td>
+                    <input type="email" name="email" id="email" required
+                           pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                           title="Enter a valid email format: name@domain.tld">
+                </td>
+            </tr>
+            <tr>
+                <td class="td2"><label for="phone">Phone #:</label></td>
+                <td colspan="4">
+                    <input type="tel" name="phone" id="phone"
+                           pattern="\d{3}-\d{3}-\d{4}"
+                           maxlength="12"
+                           required
+                           title="Format: 000-000-0000 (digits only, use dashes)">
+                </td>
+            </tr>
 
                 <!-- CHECKBOXES -->
             <tr>
