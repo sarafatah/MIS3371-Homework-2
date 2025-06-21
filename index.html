@@ -67,7 +67,10 @@ Description: patient registration form
                 <!-- DOB -->
                 <tr>
                     <td class="td1"><label for="dob">Date of Birth:</label></td>
-                    <td><input type="date" id="dob" name="dob" required></td>
+                    <td><input type="date" id="dob" name="dob"
+                           min="1905-07-21" max="2025-06-21"
+                           required>
+                    </td>
                 </tr>
 
                 <!-- SSN -->
