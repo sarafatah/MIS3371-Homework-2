@@ -71,7 +71,9 @@ document.addEventListener("DOMContentLoaded", function () {
             ).join("<br>")}<br><br>
         
             <strong>Vaccinated?:</strong> ${getSelectedRadio("vaccinated")}<br>
+            <strong>Insurance?:</strong> ${getSelectedRadio("insurance")}<br>
             <strong>Health Rating:</strong> ${getValue("range")}<br><br>
+
         
             <strong>Described Symptoms:</strong><br>${getValue("notes") || "(None)"}<br><br>
         
