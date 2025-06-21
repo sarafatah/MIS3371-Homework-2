@@ -19,3 +19,13 @@ output.innerHTML = slider.value;
 slider.oninput = function () {
     output.innerHTML = this.value;
 };
+
+document.addEventListener("DOMContentLoaded", () => {
+    const dobInput = document.getElementById("dob");
+    const today = new Date();
+    const max = today.toISOString().split("T")[0];
+    const min = new Date(today.getFullYear() - 120, today.getMonth(), today.getDate()).toISOString().split("T")[0];
+
+    dobInput.setAttribute("min", min);
+    dobInput.setAttribute("max", max);
+});
