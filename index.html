@@ -151,17 +151,16 @@ Description: patient registration form
                     <td><input type="email" name="email" id="email" required></td>
                 </tr>
                 <tr>
-                    <input type="tel" name="phone" id="phone"
-                           pattern="\d{3}-\d{3}-\d{4}"
-                           maxlength="12"
-                           required
-                           title="Format: 000-000-0000 (digits only, use dashes)">
-                    </td>
-                    <td>
-                    </td>
-                    <td>
+                    <td class="td2"><label for="phone">Phone #:</label></td>
+                    <td colspan="2">
+                        <input type="tel" name="phone" id="phone"
+                               pattern="\d{3}-\d{3}-\d{4}"
+                               maxlength="12"
+                               required
+                               title="Format: 000-000-0000 (digits only, use dashes)">
                     </td>
                 </tr>
+
                 <!-- CHECKBOXES -->
             <tr>
                 <td class="td1"><label>Check all that apply:<br>Have you had:</label></td>
