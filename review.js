@@ -43,6 +43,14 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
+          const fname = getValue("fname").toLowerCase();
+          const lname = getValue("lname").toLowerCase();
+          
+          if (password.toLowerCase().includes(fname) || password.toLowerCase().includes(lname)) {
+              alert("❌ Password cannot contain your first or last name.");
+              return;
+     }
+
         const dobInput = getValue("dob");
         const dob = new Date(dobInput);
         const today = new Date();
