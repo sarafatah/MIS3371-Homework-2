@@ -77,6 +77,23 @@ document.addEventListener("DOMContentLoaded", function () {
             <strong>Insurance?:</strong> ${getSelectedRadio("insurance")}<br>
             <strong>Health Rating:</strong> ${getValue("range")}<br><br>
 
+            <strong>Desired Salary:</strong> ${new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                maximumFractionDigits: 0
+            }).format(getValue("salary"))}<br>
+            
+            <strong>Home Budget Range:</strong> 
+            ${new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                maximumFractionDigits: 0
+            }).format(getValue("minPrice"))} – 
+            ${new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                maximumFractionDigits: 0
+            }).format(getValue("maxPrice"))}<br><br>
         
             <strong>Described Symptoms:</strong><br>${getValue("notes") || "(None)"}<br><br>
         
