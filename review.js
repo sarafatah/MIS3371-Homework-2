@@ -103,6 +103,27 @@ if (salarySlider) {
     salarySlider.addEventListener("input", () => updateSalaryLabel(salarySlider.value));
 }
 
+ function formatCurrency(value) {
+    return new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        maximumFractionDigits: 0
+    }).format(value);
+}
+
+  const minPriceSlider = document.getElementById("minPrice");
+  const maxPriceSlider = document.getElementById("maxPrice");
+  
+  if (minPriceSlider && maxPriceSlider) {
+      minPriceSlider.addEventListener("input", () => {
+          document.getElementById("minPriceLabel").textContent = formatCurrency(minPriceSlider.value);
+      });
+  
+      maxPriceSlider.addEventListener("input", () => {
+          document.getElementById("maxPriceLabel").textContent = formatCurrency(maxPriceSlider.value);
+      });
+  }
+
 
     window.confirmSubmit = function () {
         modal.style.display = "none";
